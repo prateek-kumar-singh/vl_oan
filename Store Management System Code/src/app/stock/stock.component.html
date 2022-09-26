@@ -1,0 +1,6 @@
+Loan Amount:<input type="number" [(ngModel)]="loanAmount" /><br />
+Tenure in Months:<input type="number" [(ngModel)]="tenure" /> <br />
+interest:
+<input type="number" [(ngModel)]="interest" />
+<button (click)="cal()">Calculate</button>
+<h1>EMI:{{ emi }}/m</h1>

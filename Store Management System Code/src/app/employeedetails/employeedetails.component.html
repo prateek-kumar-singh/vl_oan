@@ -1,0 +1,63 @@
+<!-- form -->
+<div class="row">
+  <div class="col-lg-5">
+    <div class="container">
+      <h3>EMPLOYEES DETAILS</h3>
+      <form #imageForm=ngForm (ngsubmit)="onSubmitImage(Image)">
+        <div class="form-group">
+          <label>Name :</label> 
+          <input type="text" name="name" class="form-control" [(ngModel)]="employeedetails.namen">
+        </div>
+        <div class="form-group">
+          <label>Address :</label> 
+          <input type="text" name="address" class="form-control" [(ngModel)]="employeedetails.address">
+        </div>
+        <div class="form-group">
+          <label>Phone No :</label> 
+          <input type="number" name="phone" class="form-control" [(ngModel)]="employeedetails.phoneno">
+        </div>
+        <div class="form-group">
+          <label>Job :</label> 
+          <input type="text" name="job" class="form-control" [(ngModel)]="employeedetails.job">
+        </div>
+        <div class="form-group">
+          <label>Username :</label> 
+          <input type="text" name="uname" class="form-control" [(ngModel)]="employeedetails.username">
+        </div>
+        <input type="submit" value="{{isEdit ? 'Edit' : 'Add'}}" class="btn btn-success mr-2" (click)="onSubmit()">
+        <input type="reset" value="Cancel" class="btn btn-danger">
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <div class="container">
+      <!-- Table -->
+      <table class="table table-striped table-hover table-condensed">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone No.</th>
+            <th scope="col">Job</th>
+            <th scope="col">Username</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of employeedetailsList.slice().reverse()">
+            <td>{{e.id}}</td>
+            <td>{{e.namen}}</td>
+            <td>{{e.address}}</td>
+            <td>{{e.phoneno}}</td>
+            <td>{{e.job}}</td> 
+            <td>{{e.username}}</td> 
+            <td><button type="button" class="btn btn-primary" data-name={{e.name}} (click)="editClick(e)">Edit <i class="fas fa-user-edit" arial-hidden="true"></i></button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(e)">Delete <i class="fas fa-user-times" arial-hidden="true"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
