@@ -55,6 +55,13 @@
                            <td *ngIf ="i < 5">{{s.company}}</td>
                            
                         </tr>
+                        <div class="card bg-light text-dark">
+                            <div class="card-body">
+                              <h3>Logout User: {{ username}}</h3> 
+                              <!-- <input type="button" value="Logout"  class="btn btn-danger" (click)="logoutUser()"> -->
+                              <button type="button" class="btn btn-danger" value="Logout" (click)="logoutUser()" >Logout <i class="fas fa-lock-open" arial-hidden="true"></i></button>
+                            </div>
+                          </div>
                     </tbody>
                 </table>
         </div>

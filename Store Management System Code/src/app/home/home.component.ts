@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   purchaseproductList : PurchaseProduct[];
   saleproduct : SaleProduct;
   saleproductList : SaleProduct[];
+  appComponent: any;
+  loginService: any;
+  username: string;
 
   constructor(private homeservice : HomeService , private appcomponent : AppComponent) { }
   
@@ -34,6 +37,7 @@ export class HomeComponent implements OnInit {
     res.subscribe(response => {
       console.log(response);
       this.purchaseproductList = response;
+      this.loginService.cast.subscribe(user => this.username = user);
     })
 
    //sale product get
@@ -47,4 +51,9 @@ export class HomeComponent implements OnInit {
     })
     this.appcomponent.getName();
   }
+  logoutUser()
+    {
+      this.loginService.setUserLoggedOut();
+      this.appComponent.removeName();
+    }
 }
