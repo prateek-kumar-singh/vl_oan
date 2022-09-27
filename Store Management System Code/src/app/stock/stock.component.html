@@ -1,6 +1,9 @@
-Loan Amount:<input type="number" [(ngModel)]="loanAmount" /><br />
-Tenure in Months:<input type="number" [(ngModel)]="tenure" /> <br />
-interest:
-<input type="number" [(ngModel)]="interest" />
+<center>
+    Loan Amount:<input type="number"  [(ngModel)]="loanAmount" /><br /><br>
+Tenure in Months:<input type="number"  [(ngModel)]="tenure" /> <br /><br>
+Interest:
+<input type="number"  [(ngModel)]="interest" /><br>
+
 <button (click)="cal()">Calculate</button>
-<h1>EMI:{{ emi }}/m</h1>
+<h1>EMI:{{ emi | number:'0.2-2'}}/m</h1>
+</center>
